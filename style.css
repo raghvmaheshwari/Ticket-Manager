@@ -129,14 +129,21 @@ body {
     width: 55%;
     border-radius: 2px;
 }
+.border{
+    border: 5px solid #1B2430;
+}
 .ticket{
 height: 12rem;
 width: 17rem;
 background-color: #57606f;
+color: white;
+border-radius: 4px;
 }
 .ticket-color{
     height: 1rem;
-    background-color:#A084CF;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    
 }
 .ticket-id{
     height:2rem;
