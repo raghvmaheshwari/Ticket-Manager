@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.toolbox-cont{
+    height: 5rem;
+    background-color:#1B2430;
+    display: flex;
+    align-items: center;
+}
+.toolbox-cont>*{
+    margin-left: 4rem;
+    border-radius: 3px;
+}
+.toolbox-priority-cont{
+    height: 3.5rem;
+    width: 16rem;
+    background-color:#57606f;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.action-btn-cont{
+    height:3.5rem;
+    width: 8rem;
+    background-color:#57606f;
+    display: flex;
+  
+   
+}
+.action-btn-cont>*{
+    width: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.color
+{
+    height: 1.5rem;
+    width: 3rem;
+    background-color:#D6D5A8;
+    border-radius: 2px;
+
+}
+.one{
+    background-color: #DFBB9D;
+}
+.two{
+    background-color: #F7E2D6;
+}
+.three{
+    background-color: #9DD6DF;
+
+}
+.four{
+    background-color: #A084CF;
+}
+.action-btn-cont>*:hover{
+    background-color:#88a2cf;
+    border-radius: 0.2rem;
+    
+}
