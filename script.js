@@ -8,26 +8,26 @@ let allPriorityColors = document.querySelectorAll(".priority-color"); //access o
 
 
 
-let colors = ["one","two","three","four"]; //array of colors
-let modalPriorityColor = colors[colors.length-1];//default color
+let colors = ["one", "two", "three", "four"]; //array of colors
+let modalPriorityColor = colors[colors.length - 1];//default color
 
 //Listner for modal priority coloring
-allPriorityColors.forEach((colorElem,idx) =>{  //loop on all colors
-    colorElem.addEventListener("click",(e)=>{    //on click apply border
-        allPriorityColors.forEach((priorityColorElem,idx)=>{ //remove default border class
+allPriorityColors.forEach((colorElem, idx) => {  //loop on all colors
+    colorElem.addEventListener("click", (e) => {    //on click apply border
+        allPriorityColors.forEach((priorityColorElem, idx) => { //remove default border class
             priorityColorElem.classList.remove("border");
         })
         colorElem.classList.add("border"); //apply border class
-    
+
         modalPriorityColor = colorElem.classList[0]; //setting the selected color 
     })
-    })
+})
 
 let addFlag = false; //default value of add 
 let removeFlag = false; //default valur of remove
 
 let lockClass = "fa-lock";
-let unlockClass ="fa-lock-open";
+let unlockClass = "fa-lock-open";
 
 //event listner on click
 addBtn.addEventListener("click", (e) => {
@@ -44,19 +44,19 @@ addBtn.addEventListener("click", (e) => {
         modal.style.display = "none"; //dipslay set to none
     }
 })
-removeBtn.addEventListener("click",(e)=>{
-    removeFlag=!removeFlag;
+removeBtn.addEventListener("click", (e) => {
+    removeFlag = !removeFlag;
 })
 modal.addEventListener("keydown", (e) => {
     let key = e.key;
     if (key === "Shift") {
-        createTicket(modalPriorityColor,textarea.value,shortid());
+        createTicket(modalPriorityColor, textarea.value, shortid());
         modal.style.display = "none";
         addFlag = false;
         textarea.value = "";
     }
 })
-function createTicket(ticketColor,ticketTask,ticketID) {
+function createTicket(ticketColor, ticketTask, ticketID) {
     let ticket = document.createElement("div");
     ticket.setAttribute("class", "ticket");
     ticket.innerHTML = `
@@ -70,27 +70,44 @@ function createTicket(ticketColor,ticketTask,ticketID) {
     mainCont.appendChild(ticket);
     handleRemoval(ticket);
     handleLock(ticket);
+    handleColor(ticket);
+
 }
-function handleRemoval(ticket){
+function handleRemoval(ticket) {
     //removeFlag - > true >remove
     if (removeFlag) ticket.remove();
 }
-function handleLock(ticket){
+function handleLock(ticket) {
     let ticketLockElem = ticket.querySelector(".lock");
     let ticketLock = ticketLockElem.children[0];
     let tickettaskArea = ticket.querySelector(".task");
-    ticketLock.addEventListener("click",(e) => {
-        if(ticketLock.classList.contains(lockClass)){
+    ticketLock.addEventListener("click", (e) => {
+        if (ticketLock.classList.contains(lockClass)) {
             ticketLock.classList.remove(lockClass);
             ticketLock.classList.add(unlockClass);
-            tickettaskArea.setAttribute("contenteditable","true");
+            tickettaskArea.setAttribute("contenteditable", "true");
         }
-        else{
+        else {
             ticketLock.classList.remove(unlockClass);
             ticketLock.classList.add(lockClass);
-            tickettaskArea.setAttribute("contenteditable","false");
-            
+            tickettaskArea.setAttribute("contenteditable", "false");
+
         }
+    })
+}
+function handleColor(ticket) {
+    let ticketColor = ticket.querySelector(".ticket-color");
+    ticketColor.addEventListener("click", (e) => {
+        let currentTicketColor = ticketColor.classList[1];
+        //Get ticket color idx
+        let currentTicketColoridx = colors.findIndex((color) => {
+            return currentTicketColor === color;
+        })
+        currentTicketColoridx++;
+        let newTicketColoridx = currentTicketColoridx % colors.length;
+        let newTicketColor = colors[newTicketColoridx];
+        ticketColor.classList.remove(currentTicketColor);
+        ticketColor.classList.add(newTicketColor);
     })
 }
 
