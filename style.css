@@ -79,7 +79,11 @@ body {
 
 .main-container {
     display: flex;
-    min-height: 100vh;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+
 }
 
 .modal {
@@ -124,4 +128,24 @@ body {
     height: 3rem;
     width: 55%;
     border-radius: 2px;
+}
+.ticket{
+height: 12rem;
+width: 17rem;
+background-color: #57606f;
+}
+.ticket-color{
+    height: 1rem;
+    background-color:#A084CF;
+}
+.ticket-id{
+    height:2rem;
+    
+    padding: 0.4rem;
+
+}
+.task{
+    height: calc(100%-1rem-2rem);
+   
+    padding:0.5rem;
 }
