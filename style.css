@@ -110,6 +110,7 @@ body {
     padding: 2rem;
     font-size: 1.5rem;
     color: white;
+    
 
 
 }
@@ -142,6 +143,7 @@ body {
     color: white;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    
 }
 
 .ticket-color {
@@ -162,6 +164,7 @@ body {
     height: calc(100% - 1rem - 2rem - 2rem);
     width: 100%;
     padding: 0.5rem;
+    outline: none;
 }
 
 .lock {

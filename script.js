@@ -78,14 +78,18 @@ function handleRemoval(ticket){
 function handleLock(ticket){
     let ticketLockElem = ticket.querySelector(".lock");
     let ticketLock = ticketLockElem.children[0];
+    let tickettaskArea = ticket.querySelector(".task");
     ticketLock.addEventListener("click",(e) => {
         if(ticketLock.classList.contains(lockClass)){
             ticketLock.classList.remove(lockClass);
             ticketLock.classList.add(unlockClass);
+            tickettaskArea.setAttribute("contenteditable","true");
         }
         else{
             ticketLock.classList.remove(unlockClass);
             ticketLock.classList.add(lockClass);
+            tickettaskArea.setAttribute("contenteditable","false");
+            
         }
     })
 }
