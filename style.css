@@ -89,7 +89,7 @@ body {
 .modal {
     width: 45vw;
     height: 50vh;
-   position: absolute;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -111,6 +111,7 @@ body {
     font-size: 1.5rem;
     color: white;
 
+
 }
 
 .priority-container-color {
@@ -129,36 +130,42 @@ body {
     width: 55%;
     border-radius: 2px;
 }
-.border{
+
+.border {
     border: 5px solid #1B2430;
 }
-.ticket{
-height: 14rem;
-width: 16rem;
-background-color: #57606f;
-color: white;
-border-top-left-radius: 6px;
-border-top-right-radius: 6px;
+
+.ticket {
+    height: 14rem;
+    width: 16rem;
+    background-color: #57606f;
+    color: white;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
-.ticket-color{
+
+.ticket-color {
     height: 1rem;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    
+
 }
-.ticket-id{
-    height:2rem;
-    
+
+.ticket-id {
+    height: 2rem;
+
     padding: 0.4rem;
 
 }
-.task{
+
+.task {
     height: calc(100% - 1rem - 2rem - 2rem);
-   
-    padding:0.5rem;
+    width: 100%;
+    padding: 0.5rem;
 }
-.lock{
-    
+
+.lock {
+
     height: 2rem;
     display: flex;
     justify-content: end;

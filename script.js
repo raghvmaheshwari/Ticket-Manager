@@ -1,4 +1,5 @@
 let addBtn = document.querySelector(".add"); //selected add button
+let removeBtn = document.querySelector(".remove");//selected remove button
 let modal = document.querySelector(".modal");//access modal container
 let mainCont = document.querySelector(".main-container")
 let textarea = document.querySelector(".text-area");//access text area of modal
@@ -22,7 +23,11 @@ allPriorityColors.forEach((colorElem,idx) =>{  //loop on all colors
     })
     })
 
-let addFlag = false //default value of add button
+let addFlag = false; //default value of add 
+let removeFlag = false; //default valur of remove
+
+let lockClass = "fa-lock";
+let unlockClass ="fa-lock-open";
 
 //event listner on click
 addBtn.addEventListener("click", (e) => {
@@ -30,7 +35,7 @@ addBtn.addEventListener("click", (e) => {
     //Generate Ticket
     //AddFlag - true : Modal Display
     //AddFlag - false: Modal None
-    addFlag = !addFlag //toggle for add button
+    addFlag = !addFlag; //toggle for add button
     if (addFlag) {
         modal.style.display = "flex";  //clicked on button diplay:set to flex
 
@@ -38,6 +43,9 @@ addBtn.addEventListener("click", (e) => {
     else {
         modal.style.display = "none"; //dipslay set to none
     }
+})
+removeBtn.addEventListener("click",(e)=>{
+    removeFlag=!removeFlag;
 })
 modal.addEventListener("keydown", (e) => {
     let key = e.key;
@@ -57,7 +65,30 @@ function createTicket(ticketColor,ticketTask,ticketID) {
     <div class="task">${ticketTask}</div>
     <div class="lock">
     <i class="fa-solid fa-lock"></i>
+    
 </div>`;
     mainCont.appendChild(ticket);
+    handleRemoval(ticket);
+    handleLock(ticket);
 }
+function handleRemoval(ticket){
+    //removeFlag - > true >remove
+    if (removeFlag) ticket.remove();
+}
+function handleLock(ticket){
+    let ticketLockElem = ticket.querySelector(".lock");
+    let ticketLock = ticketLockElem.children[0];
+    ticketLock.addEventListener("click",(e) => {
+        if(ticketLock.classList.contains(lockClass)){
+            ticketLock.classList.remove(lockClass);
+            ticketLock.classList.add(unlockClass);
+        }
+        else{
+            ticketLock.classList.remove(unlockClass);
+            ticketLock.classList.add(lockClass);
+        }
+    })
+}
+
+
 
