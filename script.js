@@ -30,7 +30,7 @@ let removeFlag = false; //default valur of remove
 let lockClass = "fa-lock";
 let unlockClass = "fa-lock-open";
 
-let ticketsArr=[]; //array of all the tickets
+let ticketsArr = []; //array of all the tickets
 
 //event listner on click
 addBtn.addEventListener("click", (e) => {
@@ -56,7 +56,7 @@ modal.addEventListener("keydown", (e) => {
         createTicket(modalPriorityColor, textarea.value);
         addFlag = false;
         setModalToDefault();
-           }
+    }
 })
 function createTicket(ticketColor, ticketTask, ticketID) {
     let id = ticketID || shortid();
@@ -73,8 +73,7 @@ function createTicket(ticketColor, ticketTask, ticketID) {
     mainCont.appendChild(ticket);
 
     //create object of ticket and add to array
-    if(!ticketID) ticketsArr.push({ticketColor,ticketTask,ticketID:id});
-
+    if (!ticketID) ticketsArr.push({ ticketColor, ticketTask, ticketID: id });
     handleRemoval(ticket);
     handleLock(ticket);
     handleColor(ticket);
@@ -122,44 +121,43 @@ function handleColor(ticket) {
     })
 }
 
-for (let i=0;i<toolBoxColors.length;i++){
-    toolBoxColors[i].addEventListener("click",(e)=>{
+for (let i = 0; i < toolBoxColors.length; i++) {
+    toolBoxColors[i].addEventListener("click", (e) => {
         let currentToolBoxColor = toolBoxColors[i].classList[0];
-        let filteredTickets= ticketsArr.filter((ticketObj ,idx)=>{
+        let filteredTickets = ticketsArr.filter((ticketObj, idx) => {
             return currentToolBoxColor === ticketObj.ticketColor;
         })
         let allTicketsCont = document.querySelectorAll(".ticket");
-        for(let i=0;i<allTicketsCont.length;i++ ){
+        for (let i = 0; i < allTicketsCont.length; i++) {
             allTicketsCont[i].remove();
         }
         //display new filtered tickets;
-        filteredTickets.forEach((ticketObj,idx)=>{
-            createTicket(ticketObj.ticketColor,ticketObj.ticketTask,ticketObj.ticketID);
+        filteredTickets.forEach((ticketObj, idx) => {
+            createTicket(ticketObj.ticketColor, ticketObj.ticketTask, ticketObj.ticketID);
         })
 
     })
-    toolBoxColors[i].addEventListener("dblclick",(e)=>{
+    toolBoxColors[i].addEventListener("dblclick", (e) => {
         //remove previous tickets
         let allTicketsCont = document.querySelectorAll(".ticket");
-        for(let i=0;i<allTicketsCont.length;i++ ){
+        for (let i = 0; i < allTicketsCont.length; i++) {
             allTicketsCont[i].remove();
         }
         //display all tickets
-        ticketsArr.forEach((ticketObj,idx)=>{
-            createTicket(ticketObj.ticketColor,ticketObj.ticketTask,ticketObj.ticketID);
+        ticketsArr.forEach((ticketObj, idx) => {
+            createTicket(ticketObj.ticketColor, ticketObj.ticketTask, ticketObj.ticketID);
         })
     })
 }
-function setModalToDefault(){
+function setModalToDefault() {
     modal.style.display = "none";
     textarea.value = "";
     modalPriorityColor = colors[colors.length - 1];//default color
     allPriorityColors.forEach((priorityColorElem, idx) => { //remove default border class
         priorityColorElem.classList.remove("border");
     })
-    allPriorityColors[allPriorityColors.length-1].classList.add("border");
+    allPriorityColors[allPriorityColors.length - 1].classList.add("border");
 
- 
 
 }
 
