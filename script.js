@@ -55,9 +55,8 @@ modal.addEventListener("keydown", (e) => {
     if (key === "Shift") {
         createTicket(modalPriorityColor, textarea.value);
         addFlag = false;
-        modal.style.display = "none";
-        textarea.value = "";
-    }
+        setModalToDefault();
+           }
 })
 function createTicket(ticketColor, ticketTask, ticketID) {
     let id = ticketID || shortid();
@@ -152,6 +151,15 @@ for (let i=0;i<toolBoxColors.length;i++){
     })
 }
 function setModalToDefault(){
+    modal.style.display = "none";
+    textarea.value = "";
+    modalPriorityColor = colors[colors.length - 1];//default color
+    allPriorityColors.forEach((priorityColorElem, idx) => { //remove default border class
+        priorityColorElem.classList.remove("border");
+    })
+    allPriorityColors[allPriorityColors.length-1].classList.add("border");
+
+ 
 
 }
 
