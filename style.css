@@ -5,7 +5,13 @@
 body {
     margin: 0;
     padding: 0;
+    background-color:#222831;
 
+}
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .toolbox-cont {
@@ -89,8 +95,7 @@ body {
     padding: 2rem;
     gap: 2rem;
     justify-content: center;
-
-}
+ }
 
 .modal {
     width: 45vw;
@@ -181,4 +186,8 @@ body {
     font-size: 1.5rem;
     padding-right: 0.4rem;
 
+}
+.highlighter{
+    background-color: #88a2cf;
+    border-radius: 0.2rem;
 }
