@@ -49,26 +49,30 @@ body {
 .color {
     height: 1.5rem;
     width: 3rem;
-    background-color: #D6D5A8;
+    border: 5px solid;
     border-radius: 2px;
 
 }
 
 .one {
     background-color: #DFBB9D;
+    border-color: #DFBB9D;
 }
 
 .two {
     background-color: #F7E2D6;
+    border-color: #F7E2D6;
 }
 
 .three {
     background-color: #9DD6DF;
+    border-color: #9DD6DF;
 
 }
 
 .four {
     background-color: #A084CF;
+    border-color: #A084CF;
 }
 
 .action-btn-cont>*:hover {
@@ -76,7 +80,9 @@ body {
     border-radius: 0.2rem;
 
 }
-
+.toolbox-priority-cont>*:hover {
+    border-color: #1B2430;
+}
 .main-container {
     display: flex;
     flex-wrap: wrap;
